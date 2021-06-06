@@ -24,7 +24,8 @@ public class App {
         int product = myApp.numProduct(num1, num2);
         int quotient = myApp.numDivision(num1, num2);
 
-        myApp.numberOperations(num1, num2, sum, difference, product, quotient);
+        String output = myApp.buildOutput(num1, num2, sum, difference, product, quotient);
+        myApp.numberOperations(output);
     }
 
     public String numberInput1() {
@@ -53,8 +54,11 @@ public class App {
         return num1 / num2;
     }
 
-    public void numberOperations(int num1, int num2, int sum, int difference, int product, int quotient) {
-        System.out.printf("%d + %d = %d%n%d - %d = %d%n%d * %d = %d%n%d / %d = %d",
-                num1, num2, sum, num1, num2, difference, num1, num2, product, num1, num2, quotient);
+    public String buildOutput(int num1, int num2, int sum, int difference, int product, int quotient) {
+        return String.format("%d + %d = %d%n%d - %d = %d%n%d * %d = %d%n%d / %d = %d", num1, num2, sum, num1, num2, difference, num1, num2, product, num1, num2, quotient);
+    }
+
+    public void numberOperations(String output) {
+        System.out.print(output);
     }
 }
